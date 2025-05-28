@@ -1,0 +1,47 @@
+package MODULE2;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OneWayCalander
+ {
+
+	public static void main(String[] args)
+	{
+  String expmonth="august";
+  String expyear="2027";
+  String expday="12"
+ WebDriver driver=new ChromeDriver();
+driver.get("https://jqueryui.com/datepicker/");
+WebElement e1=driver.findElement(By.xpath("//iframe[@class='demo-frame']")):
+driver.switchTo().frame(e1);
+driver.findElement(By.id("datepicker")).click();
+while(true)
+{
+String actualmonth=driver.findElement(By.xpath("//span[@class='ui-datepicker-month']")).getText();
+String actualyear=driver.findElement(By.xpath("//span[@class='ui-datepicker-year']")).getText();
+if(expmonth.equals(actualmonth)&&(expyear.equals(actualyear)));
+{
+List<WebElemenet>l1=driver.findElements(By.xpath("//table/tbody/tr/td"));
+for(WebElement l2:l1)
+    {
+       String actualday=l2.getText;
+         if(expday.equals(actualday))
+             {
+                l2.click();
+                  break(); 
+             }
+    }
+break();
+}
+else
+      {
+         driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-w']")).click();
+       }
+        }
+}
+}
